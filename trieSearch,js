@@ -1,0 +1,19 @@
+var TrieSearch = require('trie-search');
+
+var object = {
+  'andrew': {age: 21},
+  'andy': {age: 37},
+  'andrea': {age: 25},
+  'annette': {age: 67},
+};
+
+var ts = new TrieSearch();
+
+ts.addFromObject(object);
+
+console.log(ts.get('a')); // Returns all 4 items above.
+console.log(ts.get('an')); // Returns all 4 items above.
+console.log(ts.get('and')); // Returns all 3 items above that begin with 'and'
+console.log(ts.get('andr')); // Returns all 2 items above that begin with 'andr'
+console.log(ts.get('andre')); // Returns all 2 items above that begin with 'andr'
+console.log(ts.get('andrew')); // Returns only andrew.
